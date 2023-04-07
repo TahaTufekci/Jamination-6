@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed = 5f; // The speed at which the player moves
+    [SerializeField] float speed; // The speed at which the player moves
 
     void Update()
     {
