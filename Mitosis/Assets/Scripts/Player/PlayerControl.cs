@@ -8,6 +8,7 @@ public class PlayerControl : MonoBehaviour
     public float delay; //delay amount for shooting
     private bool canAttack = true; //true when the attack delay is over
     [SerializeField] GameObject bullet; // bullet to spawn when clicked
+    [SerializeField] Animator playerAnim; // Animator of player
 
     void Update()
     {
@@ -15,11 +16,12 @@ public class PlayerControl : MonoBehaviour
 
         if (moveInput != 0)
         {
-            transform.Translate(Vector2.right * moveInput * speed * Time.deltaTime); // Moves the player left or right
+            transform.Translate(Vector2.down * moveInput * speed * Time.deltaTime); // Moves the player left or right
         }
         if (Input.GetMouseButton(0)&&canAttack)
         {
             Instantiate (bullet,transform.position, Quaternion.identity);
+            playerAnim.Play("nanobot shoot");
             StartCoroutine(AttackDelay());
         }
     }

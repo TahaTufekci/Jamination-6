@@ -13,8 +13,9 @@ public class Enemy2Controller : MonoBehaviour
     void Update()
     {
         if (canAttack)
-        {
-            Instantiate(enemyBullet, transform.position, Quaternion.identity);
+        {//spawns 2 attacks that go to different directions
+            Instantiate(enemyBullet, transform.position, Quaternion.Euler(0f, 0f, 45f));
+            Instantiate(enemyBullet, transform.position, Quaternion.Euler(0f, 0f, -45f));
             StartCoroutine(AttackDelay());
         }
     }
