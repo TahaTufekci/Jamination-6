@@ -43,5 +43,9 @@ public class EnemyHealth : MonoBehaviour
         // Instantiate a copy of the prefab at the spawner's position and rotation
         GameObject clone = Instantiate(clonePrefab, transform.position, transform.rotation);
         clone.GetComponent<EnemyLineMovement>().direction = GetComponent<EnemyLineMovement>().direction * -1;
+
+        // Decrease size
+        transform.localScale = new Vector3(transform.localScale.x/1.5f, transform.localScale.y/1.5f, transform.localScale.z/1.5f);
+        clone.transform.localScale = transform.localScale;
     }
 }

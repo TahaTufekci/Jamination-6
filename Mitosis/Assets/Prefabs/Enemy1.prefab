@@ -160,4 +160,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyBullet: {fileID: 8599918595953060203, guid: c6d44deeb2013f94eb61d716fb85d542,
     type: 3}
-  delay: 0.3
+  delay: 1

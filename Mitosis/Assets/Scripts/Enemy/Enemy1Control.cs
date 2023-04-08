@@ -14,7 +14,7 @@ public class Enemy1Control : MonoBehaviour
     {
         if (canAttack)
         {
-            Instantiate (enemyBullet,transform.position, Quaternion.identity);
+            Instantiate(enemyBullet, transform.position, Quaternion.identity);
             StartCoroutine(AttackDelay());
         }
     }
