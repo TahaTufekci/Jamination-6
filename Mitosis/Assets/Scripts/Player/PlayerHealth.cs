@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "EnemyBullet(Clone)")
+        if (other.CompareTag("EnemyBullet"))
         {
             TakeDamage(25); // The player takes damage when colliding with the object with the specified name
         }
