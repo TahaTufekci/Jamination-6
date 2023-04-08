@@ -22,15 +22,14 @@ public class EnemyLineMovement : MonoBehaviour
     {
         if (!stopMovement)
         {
-            transform.Translate(Vector2.down * speed * direction * Time.deltaTime);
+            transform.Translate(transform.right * speed * direction * Time.deltaTime);
             if (transform.position.x >= 8.35)
             {//go to left if at the right edge of screen
-                direction = 1;
+                direction = -1;
             }
             else if (transform.position.x <= -8.35)
             {//go to right if at the left edge of screen
-                transform.Translate(Vector2.right * speed * Time.deltaTime);
-                direction = -1;
+                direction = 1;
             }
         }
         
