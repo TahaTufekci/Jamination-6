@@ -33,6 +33,8 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
+        currentHealth = maxHealth;// Reset health
+
         // Instantiate a copy of the prefab at the spawner's position and rotation
         GameObject clone = Instantiate(clonePrefab, transform.position, transform.rotation);
         clone.GetComponent<EnemyLineMovement>().direction = GetComponent<EnemyLineMovement>().direction * -1;
