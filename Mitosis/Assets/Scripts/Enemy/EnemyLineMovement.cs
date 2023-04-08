@@ -5,14 +5,17 @@ using UnityEngine.UIElements;
 
 public class EnemyLineMovement : MonoBehaviour
 {
-    int direction; //direction of movement, left or righ (1 or -1)
+    public int direction; //direction of movement, left or righ (1 or -1)
     [SerializeField] float speed; //movement speed
     int randomNumber;
 
     void Start()
     {
-        randomNumber = Random.Range(0, 1);
-        direction = randomNumber < 0.5 ? -1 : 1;
+        if (direction==0)
+        {
+            randomNumber = Random.Range(0, 1);
+            direction = randomNumber < 0.5 ? -1 : 1;
+        }   
     }
     void Update()
     {

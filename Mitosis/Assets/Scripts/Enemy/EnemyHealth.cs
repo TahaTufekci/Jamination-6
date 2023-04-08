@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int maxHealth = 100; // The maximum health of the enemy
-    public int currentHealth; // The current health of the enemy
+    [SerializeField] int maxHealth = 100; // The maximum health of the enemy
+    int currentHealth; // The current health of the enemy
+    [SerializeField] GameObject clonePrefab; // Same prefab as the enemy
 
     private void Start()
     {
@@ -32,6 +33,8 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject); // Destroy the enemy object
+        // Instantiate a copy of the prefab at the spawner's position and rotation
+        GameObject clone = Instantiate(clonePrefab, transform.position, transform.rotation);
+        clone.GetComponent<EnemyLineMovement>().direction = GetComponent<EnemyLineMovement>().direction * -1;
     }
 }

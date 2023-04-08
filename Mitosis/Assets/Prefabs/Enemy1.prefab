@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2473350597310966922}
   - component: {fileID: 2473350597310966903}
   - component: {fileID: 2473350597310966925}
+  - component: {fileID: 1062390958}
   m_Layer: 0
   m_Name: Enemy1
   m_TagString: Enemy
@@ -129,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  currentHealth: 0
+  clonePrefab: {fileID: 2473350597310966900}
 --- !u!114 &2473350597310966925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,4 +143,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 328c4e3e620898f45a784cf7623a4cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  direction: 0
   speed: 3
+--- !u!114 &1062390958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2473350597310966900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f082c8803cc02b3409db0ec5536d4782, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyBullet: {fileID: 8599918595953060203, guid: c6d44deeb2013f94eb61d716fb85d542,
+    type: 3}
+  delay: 0.3
