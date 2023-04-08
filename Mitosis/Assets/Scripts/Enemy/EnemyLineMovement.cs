@@ -35,4 +35,11 @@ public class EnemyLineMovement : MonoBehaviour
         }
         
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            direction = direction * -1;
+        }
+    }
 }

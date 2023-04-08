@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy1Control : MonoBehaviour
+public class Enemy2Controller : MonoBehaviour
 {
     [SerializeField] GameObject enemyBullet; // bullet to spawn when attacked
     [SerializeField] public float delay;
