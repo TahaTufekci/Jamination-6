@@ -7,20 +7,11 @@ public class EnemyLineMovement : MonoBehaviour
 {
     int direction; //direction of movement, left or righ (1 or -1)
     [SerializeField] float speed; //movement speed
+    int randomNumber = Random.Range(0, 1);
+
     void Start()
     {
-        switch (Random.Range(1,3))//random direction at start
-        {
-            case 1:
-                direction = 1;
-                break;
-            case 2:
-                direction = -1;
-                break;
-
-            default:
-                break;
-        }
+        direction = randomNumber < 0.5 ? -1 : 1;
     }
     void Update()
     {
