@@ -8,6 +8,7 @@ public class EnemyLineMovement : MonoBehaviour
     public int direction; //direction of movement, left or righ (1 or -1)
     [SerializeField] float speed; //movement speed
     int randomNumber;
+    public bool stopMovement;
 
     void Start()
     {
@@ -19,15 +20,19 @@ public class EnemyLineMovement : MonoBehaviour
     }
     void Update()
     {
-        transform.Translate(Vector2.left * speed * direction * Time.deltaTime);
-        if (transform.position.x >= 8.35)
-        {//go to left if at the right edge of screen
-            direction = 1;
+        if (!stopMovement)
+        {
+            transform.Translate(Vector2.left * speed * direction * Time.deltaTime);
+            if (transform.position.x >= 8.35)
+            {//go to left if at the right edge of screen
+                direction = 1;
+            }
+            else if (transform.position.x <= -8.35)
+            {//go to right if at the left edge of screen
+                transform.Translate(Vector2.right * speed * Time.deltaTime);
+                direction = -1;
+            }
         }
-        else if (transform.position.x <= -8.35)
-        {//go to right if at the left edge of screen
-            transform.Translate(Vector2.right * speed * Time.deltaTime);
-            direction = -1;
-        }
+        
     }
 }
