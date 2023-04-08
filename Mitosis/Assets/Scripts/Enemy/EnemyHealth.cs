@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] int maxHealth = 100; // The maximum health of the enemy
     int currentHealth; // The current health of the enemy
     [SerializeField] GameObject clonePrefab; // Same prefab as the enemy
+    [SerializeField] GameObject blood; // Blood effect
 
     private void Start()
     {
@@ -29,6 +30,10 @@ public class EnemyHealth : MonoBehaviour
         {
             Die(); // If the health reaches 0, destroy the enemy
         }
+
+        //Spawn blood effect
+        GameObject spawnedEffect = Instantiate(blood,transform.position,Quaternion.identity);
+        Destroy(spawnedEffect,1.5f);
     }
 
     private void Die()

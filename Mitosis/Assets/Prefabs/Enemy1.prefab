@@ -131,6 +131,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   clonePrefab: {fileID: 2473350597310966900}
+  blood: {fileID: 3548588485384254792, guid: b255ab933b15612449aed8f9b3e39329, type: 3}
 --- !u!114 &2473350597310966925
 MonoBehaviour:
   m_ObjectHideFlags: 0
