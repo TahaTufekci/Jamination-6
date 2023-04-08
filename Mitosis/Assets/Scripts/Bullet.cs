@@ -16,4 +16,11 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject,1f);
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Destroy(gameObject, 0.01f);
+        }
+    }
 }
