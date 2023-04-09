@@ -162,6 +162,10 @@ MonoBehaviour:
   heartPrefab: {fileID: 7183455428771076308, guid: 88d36223e9b2787458beeccc6860cbcb,
     type: 3}
   isBoss: 1
+  audioS: {fileID: 0}
+  damageEnemy: {fileID: 8300000, guid: 446adf91902d28741ac0cdc16df4d2bb, type: 3}
+  enemyDie: {fileID: 0}
+  bossDie: {fileID: 8300000, guid: 1af5ac83a1b767f48a0308d16a2a0e74, type: 3}
 --- !u!114 &446118015716663611
 MonoBehaviour:
   m_ObjectHideFlags: 0

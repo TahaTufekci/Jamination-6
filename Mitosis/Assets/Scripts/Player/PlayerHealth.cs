@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -12,6 +13,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] GameObject blood; // Blood effect
     Score scoreScript;
     [SerializeField] GameObject gameOverPanel;
+    [SerializeField] AudioSource audioS; // Main audio source
+    [SerializeField] AudioClip damagePlayer,healPlayer;
 
     private void Start()
     {
@@ -39,6 +42,7 @@ public class PlayerHealth : MonoBehaviour
         }
         currentHealth -= damage; // Decrease the current health by the damage amount
         GameObject spawnedEffect = Instantiate(blood, transform.position, Quaternion.identity);
+        audioS.PlayOneShot(damagePlayer);
         
         if (currentHealth <= 0)
         {
@@ -50,10 +54,11 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth < 100)
         {
             currentHealth += healAmount; // Increase the current health by the damage amount
-            healthBar.greenhealth.fillAmount = currentHealth / maxHealth;
-            
+            healthBar.greenhealth.fillAmount = Mathf.Clamp01(currentHealth / maxHealth);
+
         }
         enemyHealth.HeartDie();
+        audioS.PlayOneShot(healPlayer);
         scoreScript.score += 100;
         scoreScript.ScoreChange();
     }

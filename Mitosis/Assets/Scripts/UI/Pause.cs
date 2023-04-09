@@ -10,11 +10,11 @@ public class Pause : MonoBehaviour
 {
     [SerializeField] AudioSource clickSource;
     [SerializeField] AudioClip[] clickClips;
-    [SerializeField] GameObject pausePanel;
+    [SerializeField] GameObject pausePanel,gameOver;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape)&&!gameOver.activeSelf)
         {
             if (pausePanel.activeSelf)
             {

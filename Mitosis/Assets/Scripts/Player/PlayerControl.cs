@@ -9,6 +9,8 @@ public class PlayerControl : MonoBehaviour
     private bool canAttack = true; //true when the attack delay is over
     [SerializeField] GameObject bullet; // bullet to spawn when clicked
     [SerializeField] Animator playerAnim; // Animator of player
+    [SerializeField] AudioSource audioS; // Main audio source
+    [SerializeField] AudioClip shoot;
 
     void Update()
     {
@@ -22,6 +24,7 @@ public class PlayerControl : MonoBehaviour
         {
             Instantiate (bullet,transform.position, Quaternion.identity);
             playerAnim.Play("nanobot shoot");
+            audioS.PlayOneShot(shoot);
             StartCoroutine(AttackDelay());
         }
     }

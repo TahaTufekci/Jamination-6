@@ -6,9 +6,12 @@ using UnityEngine;
 public class Score : MonoBehaviour
 {
     public int score;
-    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI[] scoreText;
     public void ScoreChange()
     {
-        scoreText.SetText("Score: " + score);
+        for (int i = 0; i < scoreText.Length; i++)
+        {
+            scoreText[i].SetText("Score: " + score);
+        }
     }
 }

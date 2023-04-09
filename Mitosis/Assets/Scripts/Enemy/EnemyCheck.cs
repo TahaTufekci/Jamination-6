@@ -9,6 +9,8 @@ public class EnemyCheck : MonoBehaviour
     [SerializeField] GameObject[] bosses;
     [SerializeField] ParticleSystem bossEffect;
     bool bossSpawning;// True if the boss is spawning
+    [SerializeField] AudioSource audioS; // Main audio source
+    [SerializeField] AudioClip bossSpawn;
     void Update()
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -27,6 +29,7 @@ public class EnemyCheck : MonoBehaviour
         bossEffect.gameObject.SetActive(true);
         bossEffect.Play();
         StartCoroutine(BossEffectSize());
+        audioS.PlayOneShot(bossSpawn);
         yield return new WaitForSeconds(3);
         foreach (GameObject enemy in enemies)
         {

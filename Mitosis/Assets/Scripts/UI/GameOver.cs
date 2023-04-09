@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,6 +10,7 @@ public class GameOver : MonoBehaviour
     [SerializeField] AudioClip[] clickClips;
     [SerializeField] GameObject gameOverPanel;
     
+
     public void MainMenu()
     {
         clickSource.PlayOneShot(clickClips[Random.Range(0, clickClips.Length)]);
