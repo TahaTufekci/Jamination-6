@@ -9,7 +9,8 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] GameObject clonePrefab; // Same prefab as the enemy
     [SerializeField] GameObject blood; // Blood effect
     [SerializeField] GameObject[] enemies; // Enemies that can be spawned after a boss' death
-    [SerializeField] GameObject heartPrefab; // Heart that the player can pick up
+    [SerializeField] GameObject heartPrefab;
+    private GameObject heart; // Heart that the player can pick up
     [SerializeField] bool isBoss; // Checks if the enemy is a boss, if it is a boss, instead of splitting on death it spawns new enemies
 
     private void Start()
@@ -62,7 +63,7 @@ public class EnemyHealth : MonoBehaviour
             float randomNumber = Random.Range(0f, 1f);
             if (randomNumber < 0.25f)
             {
-                Instantiate(heartPrefab,new Vector3(transform.position.x,2.5f,transform.position.z), Quaternion.identity);
+                heart = Instantiate(heartPrefab,new Vector3(transform.position.x,2.5f,transform.position.z), Quaternion.identity);
             }
         }
         
@@ -74,9 +75,13 @@ public class EnemyHealth : MonoBehaviour
         yield return new WaitForSeconds(3);
         GameObject spawned1 = Instantiate(enemies[Random.Range(0,enemies.Length)],new Vector3(transform.position.x,4,transform.position.z), Quaternion.Euler(0, -180, 90));
         GameObject spawned2 = Instantiate(enemies[Random.Range(0,enemies.Length)],new Vector3(transform.position.x,2.5f,transform.position.z), Quaternion.Euler(0, -180, 90));
-        Instantiate(heartPrefab,new Vector3(transform.position.x,2.5f,transform.position.z), Quaternion.identity);
+        heart = Instantiate(heartPrefab,new Vector3(transform.position.x,2.5f,transform.position.z), Quaternion.identity);
         spawned1.GetComponent<EnemyLineMovement>().direction = -1;
         spawned2.GetComponent<EnemyLineMovement>().direction = 1;
         Destroy(gameObject);
+    }
+    public void HeartDie()
+    {
+        Destroy(heart,0.01f); // Destroy the enemy object
     }
 }
