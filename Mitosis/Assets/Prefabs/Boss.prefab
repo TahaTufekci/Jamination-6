@@ -4950,6 +4950,7 @@ MonoBehaviour:
   - {fileID: 2473350597310966900, guid: 4445ae23aedf92a44a2db1761535e0f9, type: 3}
   - {fileID: 4714298833847419512, guid: 1b15568743f30d34db1279607340a773, type: 3}
   - {fileID: 6815170172389739162, guid: 473c75b2d6bd00544a6dbc1db589d538, type: 3}
+  heartPrefab: {fileID: 0}
   isBoss: 1
 --- !u!114 &6856101971549012474
 MonoBehaviour:
