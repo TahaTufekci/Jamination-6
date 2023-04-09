@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100; // The maximum health of the player
     public int currentHealth; // The current health of the player
     [SerializeField] EnemyHealth enemyHealth; // Enemy health instance
+    [SerializeField] GameObject blood; // Blood effect
 
     private void Start()
     {
@@ -28,7 +30,7 @@ public class PlayerHealth : MonoBehaviour
     private void TakeDamage(int damage)
     {
         currentHealth -= damage; // Decrease the current health by the damage amount
-
+        GameObject spawnedEffect = Instantiate(blood, transform.position, Quaternion.identity);
         if (currentHealth <= 0)
         {
             Die(); // If the health reaches 0, destroy the enemy
