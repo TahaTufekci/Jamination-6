@@ -11,6 +11,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] EnemyHealth enemyHealth; // Enemy health instance
     [SerializeField] GameObject blood; // Blood effect
     Score scoreScript;
+    [SerializeField] GameObject gameOverPanel;
 
     private void Start()
     {
@@ -59,7 +60,9 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject); // Destroy the enemy object
+        Destroy(gameObject); // Destroy the player object
+        gameOverPanel.gameObject.SetActive(true); 
+        Time.timeScale = 0;
     }
     
 }
