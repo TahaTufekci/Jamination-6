@@ -61,10 +61,10 @@ public class EnemyHealth : MonoBehaviour
             
             // Heart goes down to the player for health with a chance of 25%
             float randomNumber = Random.Range(0f, 1f);
-            if (randomNumber < 0.25f)
-            {
+            //if (randomNumber < 0.25f)
+            //{
                 heart = Instantiate(heartPrefab,new Vector3(transform.position.x,2.5f,transform.position.z), Quaternion.identity);
-            }
+            //}
         }
         
     }
@@ -82,6 +82,6 @@ public class EnemyHealth : MonoBehaviour
     }
     public void HeartDie()
     {
-        Destroy(heart,0.01f); // Destroy the heart object
+        Destroy(GameObject.FindWithTag("Heart"));// Destroy the heart object
     }
 }

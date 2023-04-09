@@ -36,7 +36,10 @@ public class PlayerHealth : MonoBehaviour
     }
     private void HealthIncrease(int healAmount)
     {
-        currentHealth += healAmount; // Increase the current health by the damage amount
+        if (currentHealth < 100)
+        {
+            currentHealth += healAmount; // Increase the current health by the damage amount
+        }
         enemyHealth.HeartDie();
     }
 
