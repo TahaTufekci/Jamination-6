@@ -20,6 +20,7 @@ public class Enemy1Control : MonoBehaviour
         {
             Instantiate(enemyBullet, transform.position, Quaternion.identity);
             enemyAnim.Play("enemy1_001Action");
+            enemyAnim.Play("enemy3_001Action");
             StartCoroutine(AttackDelay());
         }
     }
