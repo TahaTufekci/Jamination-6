@@ -716,7 +716,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -76.37, y: -14}
+  m_AnchoredPosition: {x: -13, y: -14}
   m_SizeDelta: {x: 531.26, y: 50}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &982445262
@@ -942,6 +942,7 @@ GameObject:
   - component: {fileID: 1334918231}
   - component: {fileID: 1334918233}
   - component: {fileID: 1334918232}
+  - component: {fileID: 1334918234}
   m_Layer: 5
   m_Name: HealthBG
   m_TagString: Untagged
@@ -1009,6 +1010,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334918230}
   m_CullTransparentMesh: 1
+--- !u!95 &1334918234
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334918230}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5e2482274abe8c74ba6ca14d57f91883, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1387672207
 GameObject:
   m_ObjectHideFlags: 0
@@ -1276,6 +1297,7 @@ GameObject:
   - component: {fileID: 4489158735516689014}
   - component: {fileID: 4489158735516689013}
   - component: {fileID: 4489158735516689017}
+  - component: {fileID: 4489158735516689018}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1500,6 +1522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   currentHealth: 0
+  healthBar: {fileID: 4489158735516689018}
   enemyHealth: {fileID: 2036536882}
   blood: {fileID: 3399453276418354686, guid: f12b5a83813fc474ca69b0d065050a0d, type: 3}
 --- !u!114 &4489158735516689014
@@ -1567,6 +1590,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4489158735516689018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 191606582900897643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5928cbc04301e5240b5d86bb19fefb81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  greenhealth: {fileID: 521807841}
+  redhealth: {fileID: 647781540}
+  healthanimator: {fileID: 1334918234}
 --- !u!4 &7658858119721762977
 Transform:
   m_ObjectHideFlags: 0

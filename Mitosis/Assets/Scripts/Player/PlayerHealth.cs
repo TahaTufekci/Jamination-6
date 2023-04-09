@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public int maxHealth = 100; // The maximum health of the player
     public int currentHealth; // The current health of the player
+    [SerializeField] HealthBar healthBar;
     [SerializeField] EnemyHealth enemyHealth; // Enemy health instance
     [SerializeField] GameObject blood; // Blood effect
 
@@ -29,8 +30,13 @@ public class PlayerHealth : MonoBehaviour
 
     private void TakeDamage(int damage)
     {
+        if (healthBar != null)//healthbar effect
+        {
+            healthBar.Damage(currentHealth, damage, maxHealth);
+        }
         currentHealth -= damage; // Decrease the current health by the damage amount
         GameObject spawnedEffect = Instantiate(blood, transform.position, Quaternion.identity);
+        
         if (currentHealth <= 0)
         {
             Die(); // If the health reaches 0, destroy the enemy
@@ -49,4 +55,5 @@ public class PlayerHealth : MonoBehaviour
     {
         Destroy(gameObject); // Destroy the enemy object
     }
+    
 }
