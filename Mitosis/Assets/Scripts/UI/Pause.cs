@@ -16,28 +16,33 @@ public class Pause : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            pausePanel.gameObject.SetActive(true);
+            if (pausePanel.activeSelf)
+            {
+                Continue();
+            }
+            else
+            {
+                pausePanel.gameObject.SetActive(true);
+                Time.timeScale = 0;
+            }
         }
     }
 
-
-    public void Play()
+    IEnumerator MenuDelay()
     {
-        clickSource.PlayOneShot(clickClips[Random.Range(0,clickClips.Length)]);
-        StartCoroutine(StartDelay());
-    }
-    IEnumerator StartDelay()
-    {
-        yield return new WaitForSeconds(0.5f);
-        SceneManager.LoadScene("SampleScene");
+        yield return new WaitForSecondsRealtime(0.5f);
+        SceneManager.LoadScene("Main Menu");
     }
     public void MainMenu()
     {
-        SceneManager.LoadScene("Main Menu");
+        clickSource.PlayOneShot(clickClips[Random.Range(0, clickClips.Length)]);
+        StartCoroutine(MenuDelay());
     }
     public void Continue()
     {
+        clickSource.PlayOneShot(clickClips[Random.Range(0, clickClips.Length)]);
         pausePanel.gameObject.SetActive(false);
+        Time.timeScale = 1;
     }
     
     public void Quit()
