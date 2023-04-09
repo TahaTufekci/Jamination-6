@@ -12,7 +12,7 @@ public class EnemyCheck : MonoBehaviour
     void Update()
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (enemies.Length>3&& !bossSpawning)
+        if (enemies.Length>5&& !bossSpawning)
         {
             bossSpawning = true;
             StartCoroutine(SpawnBoss());

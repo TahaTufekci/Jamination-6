@@ -10,10 +10,12 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] HealthBar healthBar;
     [SerializeField] EnemyHealth enemyHealth; // Enemy health instance
     [SerializeField] GameObject blood; // Blood effect
+    Score scoreScript;
 
     private void Start()
     {
         currentHealth = maxHealth; // Set the initial health to the maximum health
+        scoreScript = GameObject.Find("Script").GetComponent<Score>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -48,8 +50,11 @@ public class PlayerHealth : MonoBehaviour
         {
             currentHealth += healAmount; // Increase the current health by the damage amount
             healthBar.greenhealth.fillAmount = currentHealth / maxHealth;
+            
         }
         enemyHealth.HeartDie();
+        scoreScript.score += 100;
+        scoreScript.ScoreChange();
     }
 
     private void Die()

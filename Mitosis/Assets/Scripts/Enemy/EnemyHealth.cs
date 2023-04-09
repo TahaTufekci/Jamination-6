@@ -12,10 +12,14 @@ public class EnemyHealth : MonoBehaviour
     [SerializeField] GameObject heartPrefab;
     private GameObject heart; // Heart that the player can pick up
     [SerializeField] bool isBoss; // Checks if the enemy is a boss, if it is a boss, instead of splitting on death it spawns new enemies
+    Score scoreScript;
+    HealthBar healthBar;
 
     private void Start()
     {
         currentHealth = maxHealth; // Set the initial health to the maximum health
+        scoreScript = GameObject.Find("Script").GetComponent<Score>();
+        healthBar = gameObject.GetComponent<HealthBar>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,6 +32,10 @@ public class EnemyHealth : MonoBehaviour
 
     private void TakeDamage(int damage)
     {
+        if (healthBar != null)//healthbar effect
+        {
+            healthBar.Damage(currentHealth, damage, maxHealth);
+        }
         currentHealth -= damage; // Decrease the current health by the damage amount
 
         if (currentHealth <= 0)
@@ -45,12 +53,17 @@ public class EnemyHealth : MonoBehaviour
         if (isBoss)
         {
             currentHealth = 99999;
+            scoreScript.score += 2000;
+            scoreScript.ScoreChange();
             StartCoroutine(BossDeath());
         }
         else
         {
             currentHealth = maxHealth;// Reset health
+            healthBar.greenhealth.fillAmount = 1;
 
+            scoreScript.score += 250;
+            scoreScript.ScoreChange();
             // Instantiate a copy of the prefab at the spawner's position and rotation
             GameObject clone = Instantiate(clonePrefab, transform.position, transform.rotation);
             clone.GetComponent<EnemyLineMovement>().direction = GetComponent<EnemyLineMovement>().direction * -1;
@@ -61,10 +74,10 @@ public class EnemyHealth : MonoBehaviour
             
             // Heart goes down to the player for health with a chance of 25%
             float randomNumber = Random.Range(0f, 1f);
-            //if (randomNumber < 0.25f)
-            //{
+            if (randomNumber <= 0.25f)
+            {
                 heart = Instantiate(heartPrefab,new Vector3(transform.position.x,2.5f,transform.position.z), Quaternion.identity);
-            //}
+            }
         }
         
     }
