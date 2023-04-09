@@ -6,9 +6,11 @@ public class Boss1Controller : MonoBehaviour
 {
     [SerializeField] float launchSpeed = 5; // The speed that it launches the bullets
     [SerializeField] GameObject bullet;
+    Animator enemyAnim;
     // Start is called before the first frame update
     void Start()
     {
+        enemyAnim = GetComponent<Animator>();
         StartCoroutine(MainAttack());//start attacking
     }
 
@@ -17,6 +19,7 @@ public class Boss1Controller : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(1f, 2f));// Wait for a while
+            enemyAnim.Play("enemy4_002Action");
             for (int i = 0; i < Random.Range(8, 16)/*Random amount of bullets*/; i++)
             {
                 GameObject instance = Instantiate(bullet, transform.position, Quaternion.identity);//create bullet
