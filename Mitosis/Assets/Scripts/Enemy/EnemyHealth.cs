@@ -82,6 +82,6 @@ public class EnemyHealth : MonoBehaviour
     }
     public void HeartDie()
     {
-        Destroy(heart,0.01f); // Destroy the enemy object
+        Destroy(heart,0.01f); // Destroy the heart object
     }
 }
