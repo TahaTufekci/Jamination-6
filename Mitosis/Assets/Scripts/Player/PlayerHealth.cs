@@ -47,6 +47,7 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth < 100)
         {
             currentHealth += healAmount; // Increase the current health by the damage amount
+            healthBar.greenhealth.fillAmount = currentHealth / maxHealth;
         }
         enemyHealth.HeartDie();
     }

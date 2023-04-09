@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] Image greenhealth;
+    public Image greenhealth;
     [SerializeField] Image redhealth;
     [SerializeField] Animator healthanimator;
     bool enemy;
