@@ -31,6 +31,7 @@ public class Pause : MonoBehaviour
     IEnumerator MenuDelay()
     {
         yield return new WaitForSecondsRealtime(0.5f);
+        Time.timeScale = 1;
         SceneManager.LoadScene("Main Menu");
     }
     public void MainMenu()
