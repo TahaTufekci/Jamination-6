@@ -72,8 +72,8 @@ public class EnemyHealth : MonoBehaviour
         GetComponent<EnemyLineMovement>().stopMovement = true;
         transform.Find("BossDeath1").gameObject.SetActive(true);
         yield return new WaitForSeconds(3);
-        GameObject spawned1 = Instantiate(enemies[Random.Range(0,enemies.Length)],new Vector3(transform.position.x,4,transform.position.z), Quaternion.identity);
-        GameObject spawned2 = Instantiate(enemies[Random.Range(0,enemies.Length)],new Vector3(transform.position.x,2.5f,transform.position.z), Quaternion.identity);
+        GameObject spawned1 = Instantiate(enemies[Random.Range(0,enemies.Length)],new Vector3(transform.position.x,4,transform.position.z), Quaternion.Euler(0, -180, 90));
+        GameObject spawned2 = Instantiate(enemies[Random.Range(0,enemies.Length)],new Vector3(transform.position.x,2.5f,transform.position.z), Quaternion.Euler(0, -180, 90));
         Instantiate(heartPrefab,new Vector3(transform.position.x,2.5f,transform.position.z), Quaternion.identity);
         spawned1.GetComponent<EnemyLineMovement>().direction = -1;
         spawned2.GetComponent<EnemyLineMovement>().direction = 1;

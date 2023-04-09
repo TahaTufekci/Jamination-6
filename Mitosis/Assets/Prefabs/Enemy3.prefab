@@ -102,8 +102,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.000501779, y: 0.000311782, z: 0.000998507}
-  m_Center: {x: -0.0000046507394, y: -0.0000037699451, z: 0.0005096859}
+  m_Size: {x: 0.000501779, y: 0.000311782, z: 0.0055858954}
+  m_Center: {x: -0.0000046507394, y: -0.0000037699451, z: -0.000077019504}
 --- !u!54 &3995782044219667826
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -136,6 +136,8 @@ MonoBehaviour:
   clonePrefab: {fileID: 0}
   blood: {fileID: 3548588485384254792, guid: b255ab933b15612449aed8f9b3e39329, type: 3}
   enemies: []
+  heartPrefab: {fileID: 7183455428771076308, guid: 88d36223e9b2787458beeccc6860cbcb,
+    type: 3}
   isBoss: 0
 --- !u!114 &3995782044219667824
 MonoBehaviour:

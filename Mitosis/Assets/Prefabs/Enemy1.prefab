@@ -166,6 +166,8 @@ MonoBehaviour:
   clonePrefab: {fileID: 5077939731614606798}
   blood: {fileID: 3548588485384254792, guid: b255ab933b15612449aed8f9b3e39329, type: 3}
   enemies: []
+  heartPrefab: {fileID: 7183455428771076308, guid: 88d36223e9b2787458beeccc6860cbcb,
+    type: 3}
   isBoss: 0
 --- !u!95 &5336186959789080009
 Animator:

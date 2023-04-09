@@ -32,7 +32,7 @@ public class EnemyCheck : MonoBehaviour
         {
             Destroy(enemy);
         }
-        Instantiate(bosses[Random.Range(0, bosses.Length)], new Vector3(0, 3, 0), Quaternion.identity);
+        Instantiate(bosses[Random.Range(0, bosses.Length)], new Vector3(0, 3, 0), Quaternion.Euler(0,-180,90));
         bossSpawning = false;
         bossEffect.Stop();
     }
